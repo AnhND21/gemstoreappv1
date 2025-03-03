@@ -8,7 +8,7 @@ import 'package:gemstoreappv1/routes/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: AppRoutes.home,
+  initialLocation: AppRoutes.welcome,
   routes: [
     GoRoute(
       path: AppRoutes.welcome,
