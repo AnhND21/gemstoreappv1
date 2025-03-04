@@ -150,7 +150,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   Button(
                       title: 'LOG IN',
                       onPressed: () {
-                        context.go(AppRoutes.home);
+                        context.go(AppRoutes.appStack);
                       }),
                   SizedBox(
                     height: 16,

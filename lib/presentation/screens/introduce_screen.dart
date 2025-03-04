@@ -13,7 +13,7 @@ class IntroduceScreen extends StatefulWidget {
 
 class _IntroduceScreenState extends State<IntroduceScreen> {
   int _currentIndex = 0;
-  // Chỉ số trang hiện tại
+
   final List<Map<String, dynamic>> imgList = [
     {
       'id': 1,

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
@@ -23,14 +24,14 @@ class _HomeSlideImageState extends State<HomeSlideImage> {
       'title': 'Update trendy\n outfit',
       'description': 'Favorite brands and hottest trends',
       'image':
-          'https://t3.ftcdn.net/jpg/03/33/81/02/360_F_333810258_5gP2SBYroH0jtgAtI2ANibRRDe2YY7dU.jpg',
+          'https://img.freepik.com/premium-vector/fashion-banner-template_1340-15549.jpg',
     },
     {
       'id': 3,
       'title': 'Explore your\n true style',
       'description': 'Relax and let us bring the style to you',
       'image':
-          'https://t3.ftcdn.net/jpg/03/33/81/02/360_F_333810258_5gP2SBYroH0jtgAtI2ANibRRDe2YY7dU.jpg',
+          'https://t4.ftcdn.net/jpg/03/03/61/97/360_F_303619771_vy39PBdXvGeOna8NAsqCcqAee3f1ZTXK.jpg',
     },
   ];
   int _currentIndex = 0;
@@ -46,7 +47,8 @@ class _HomeSlideImageState extends State<HomeSlideImage> {
           CarouselSlider(
             options: CarouselOptions(
               enlargeFactor: 0.5,
-              height: 200.0, // Chiều cao cố định của carousel
+              height: 200.0,
+              // Chiều cao cố định của carousel
               enlargeCenterPage: true,
               // autoPlay: true,
               aspectRatio: 16 / 9,
@@ -62,17 +64,22 @@ class _HomeSlideImageState extends State<HomeSlideImage> {
               return SizedBox(
                 width: MediaQuery.of(context).size.width, // Giới hạn chiều rộng
                 child: Stack(
-                  // mainAxisSize: MainAxisSize.min, // Giới hạn chiều cao của Column
                   children: [
-                    Expanded(
-                      // Dùng Expanded để ảnh chiếm toàn bộ không gian khả dụng
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
-                        child: Image.network(
-                          item['image'],
-                          fit: BoxFit.cover, // Đảm bảo ảnh fit trong không gian
-                          width: double.infinity,
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(16)),
+                      child: CachedNetworkImage(
+                        imageUrl: item['image'],
+                        fit: BoxFit.cover,
+                        width: double.infinity,
+                        height: 200.0,
+                        progressIndicatorBuilder:
+                            (context, url, downloadProgress) => Center(
+                          child: CircularProgressIndicator(
+                            value: downloadProgress.progress,
+                            color: Color(GColors.greenColor),
+                          ),
                         ),
+                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
                     ),
                     Positioned(

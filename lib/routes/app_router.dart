@@ -1,3 +1,4 @@
+import 'package:gemstoreappv1/app.dart';
 import 'package:gemstoreappv1/presentation/screens/forgot_password_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/home_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/introduce_screen.dart';
@@ -8,7 +9,7 @@ import 'package:gemstoreappv1/routes/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
 final GoRouter router = GoRouter(
-  initialLocation: AppRoutes.welcome,
+  initialLocation: AppRoutes.appStack,
   routes: [
     GoRoute(
       path: AppRoutes.welcome,
@@ -31,8 +32,8 @@ final GoRouter router = GoRouter(
       builder: (context, state) => ForgotPasswordScreen(),
     ),
     GoRoute(
-      path: AppRoutes.home,
-      builder: (context, state) => HomeScreen(),
+      path: AppRoutes.appStack,
+      builder: (context, state) => AppRouterScreen(),
     ),
   ],
 );

@@ -7,4 +7,5 @@ class AppRoutes {
   static const String verificationCode = '/verificationCode';
   static const String createNewPassword = '/createNewPassword';
   static const String home = '/home';
+  static const String appStack = '/appStack';
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'routes/app_router.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
-void main() {
+
+void  main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 

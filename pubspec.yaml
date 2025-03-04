@@ -38,6 +38,8 @@ dependencies:
   go_router: ^14.8.1
   flutter_bloc: ^9.1.0
   carousel_slider: ^5.0.0
+  cached_network_image: ^3.4.1
+  google_nav_bar: ^5.0.7
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +77,10 @@ flutter:
     - assets/icons/men_icon.png
     - assets/icons/beauty_icon.png
     - assets/icons/accessories_icon.png
+    - assets/images/accessories.png
+    - assets/images/clothing.png
+    - assets/images/collections.png
+    - assets/images/shoes2.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
