@@ -1,3 +1,4 @@
+import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:go_router/go_router.dart';
@@ -16,6 +17,8 @@ class GAppBar extends StatelessWidget implements PreferredSizeWidget {
       this.leading,
       this.onPressed,
       this.border = false});
+
+  final isAndroid = Platform.isAndroid;
 
   @override
   Widget build(BuildContext context) {

@@ -20,8 +20,8 @@ class _AppRouterScreenState extends State<AppRouterScreen> {
 
   // Danh sách các màn hình tương ứng với từng tab
   static const List<Widget> _screens = <Widget>[
-    DiscoverScreen(),
     HomeScreen(),
+    DiscoverScreen(),
     MyOrderScreen(),
     SettingsScreen()
   ];
@@ -40,7 +40,7 @@ class _AppRouterScreenState extends State<AppRouterScreen> {
               topLeft: Radius.circular(32.0), topRight: Radius.circular(32.0)),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
+              color: Colors.grey.withValues(alpha: 0.2),
               spreadRadius: 2,
               blurRadius: 7,
               offset: Offset(1, 1),
@@ -51,7 +51,7 @@ class _AppRouterScreenState extends State<AppRouterScreen> {
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
           child: GNav(
             // backgroundColor: Color(GColors.redColor),
-            color:  Color(GColors.activeFilterColor),
+            color: Color(GColors.activeFilterColor),
             gap: 8,
             activeColor: Color(GColors.activeFilterColor),
             iconSize: 24,

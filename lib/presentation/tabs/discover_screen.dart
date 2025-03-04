@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/widgets/appbar_tab.dart';
+import 'package:gemstoreappv1/routes/app_routes.dart';
+import 'package:go_router/go_router.dart';
 
 class DiscoverScreen extends StatefulWidget {
   const DiscoverScreen({super.key});
@@ -53,28 +55,33 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
               Row(
                 children: <Widget>[
                   Expanded(
-                    child: Container(
-                      padding: EdgeInsets.all(12),
-                      decoration: BoxDecoration(
-                        color: Color(GColors.inputBackgroundColor),
-                        borderRadius: BorderRadius.circular(16),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.2),
-                            spreadRadius: 2,
-                            blurRadius: 7,
-                            offset: Offset(1, 1),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        children: <Widget>[
-                          Icon(CupertinoIcons.search),
-                          SizedBox(
-                            width: 4,
-                          ),
-                          Text('Search...')
-                        ],
+                    child: GestureDetector(
+                      onTap: () {
+                        context.push(AppRoutes.search);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(12),
+                        decoration: BoxDecoration(
+                          color: Color(GColors.inputBackgroundColor),
+                          borderRadius: BorderRadius.circular(16),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withValues(alpha: 0.2),
+                              spreadRadius: 2,
+                              blurRadius: 7,
+                              offset: Offset(1, 1),
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Icon(CupertinoIcons.search),
+                            SizedBox(
+                              width: 4,
+                            ),
+                            Text('Search...')
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -88,7 +95,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withOpacity(0.2),
+                          color: Colors.grey.withValues(alpha: 0.2),
                           spreadRadius: 2,
                           blurRadius: 7,
                           offset: Offset(1, 1),
@@ -134,8 +141,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                               height: 110,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Color(GColors.blackGrayColor)
-                                      .withOpacity(0.3)),
+                                  color: Color(GColors.whiteColor)
+                                      .withValues(alpha: 0.3)),
                             )),
                             Positioned(
                                 child: Container(
@@ -143,8 +150,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                               height: 80,
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color: Color(GColors.blackGrayColor)
-                                      .withOpacity(0.5)),
+                                  color: Color(GColors.whiteColor)
+                                      .withValues(alpha: 0.5)),
                             )),
                             Image.asset(
                               item['image'],

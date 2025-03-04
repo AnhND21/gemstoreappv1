@@ -8,4 +8,5 @@ class AppRoutes {
   static const String createNewPassword = '/createNewPassword';
   static const String home = '/home';
   static const String appStack = '/appStack';
+  static const String search = '/search';
 }
