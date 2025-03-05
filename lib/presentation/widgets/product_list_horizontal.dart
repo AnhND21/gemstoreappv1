@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/routes/app_routes.dart';
+import 'package:go_router/go_router.dart';
 
 class ProductListHorizontal extends StatelessWidget {
   final String? title;
   final bool isShowMore;
+  final bool? noPadding;
   final List data;
 
   ProductListHorizontal(
-      {super.key, required this.data, this.title, this.isShowMore = true});
+      {super.key,
+      required this.data,
+      this.title,
+      this.isShowMore = true,
+      this.noPadding = false});
 
   final List<Map<String, String>> lst = [
     {
@@ -46,8 +53,8 @@ class ProductListHorizontal extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start, // Căn trái toàn bộ nội dung
       children: [
         Padding(
-          padding: const EdgeInsets.fromLTRB(
-              16.0, 24.0, 16.0, 12.0), // Giảm padding dưới
+          padding:
+              EdgeInsets.fromLTRB(16.0, 24.0, 16.0, 12.0), // Giảm padding dưới
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -77,43 +84,50 @@ class ProductListHorizontal extends StatelessWidget {
               final bool isLastItem =
                   index == lst.length - 1; // Kiểm tra item cuối
 
-              return Padding(
-                padding: EdgeInsets.only(
-                  right: isLastItem
-                      ? 0
-                      : 24.0, // Item cuối right = 0, còn lại right = 24.0
-                ), // Khoảng cách giữa các item
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    SizedBox(
-                      width: 146, // Giới hạn chiều rộng ảnh
-                      height: 227, // Giới hạn chiều cao ảnh
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(16)),
-                        child: Image.network(
-                          json['cover'] ?? '',
-                          fit: BoxFit.cover, // Đảm bảo ảnh vừa khung
-                          errorBuilder: (context, error, stackTrace) {
-                            return const Icon(
-                                Icons.error); // Hiển thị khi lỗi tải ảnh
-                          },
+              return GestureDetector(
+                onTap: () {
+                  context.push(AppRoutes.productDetails,
+                      extra: {'image': json['cover']});
+                },
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    right: isLastItem
+                        ? 0
+                        : 24.0, // Item cuối right = 0, còn lại right = 24.0
+                  ), // Khoảng cách giữa các item
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(
+                        width: 146, // Giới hạn chiều rộng ảnh
+                        height: 227, // Giới hạn chiều cao ảnh
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.all(Radius.circular(16)),
+                          child: Image.network(
+                            json['cover'] ?? '',
+                            fit: BoxFit.cover, // Đảm bảo ảnh vừa khung
+                            errorBuilder: (context, error, stackTrace) {
+                              return const Icon(
+                                  Icons.error); // Hiển thị khi lỗi tải ảnh
+                            },
+                          ),
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 12.0), // Khoảng cách giữa ảnh và tên
-                    Text(
-                      json['productName'] ?? '',
-                      style: const TextStyle(fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      '\$${json['price'] ?? ''}',
-                      style: const TextStyle(
-                          color: Color(GColors.blackColor),
-                          fontWeight: FontWeight.bold,
-                          fontSize: 22),
-                    ),
-                  ],
+                      const SizedBox(height: 12.0),
+                      // Khoảng cách giữa ảnh và tên
+                      Text(
+                        json['productName'] ?? '',
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        '\$${json['price'] ?? ''}',
+                        style: const TextStyle(
+                            color: Color(GColors.blackColor),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22),
+                      ),
+                    ],
+                  ),
                 ),
               );
             }).toList(),

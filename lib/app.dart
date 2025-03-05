@@ -1,4 +1,3 @@
-// Navigation
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
@@ -7,6 +6,16 @@ import 'package:gemstoreappv1/presentation/tabs/discover_screen.dart';
 import 'package:gemstoreappv1/presentation/tabs/my_order_screen.dart';
 import 'package:gemstoreappv1/presentation/tabs/settings_screen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:get/get.dart';
+
+class GTabController extends GetxController {
+  final RxInt selectedIndex = 0.obs; // Định nghĩa selectedIndex là RxInt
+
+  void changeTab(int index) {
+    selectedIndex.value = index;
+    // print('Changed to tab $index'); // Debug nếu cần
+  }
+}
 
 class AppRouterScreen extends StatefulWidget {
   const AppRouterScreen({super.key});
@@ -16,33 +25,41 @@ class AppRouterScreen extends StatefulWidget {
 }
 
 class _AppRouterScreenState extends State<AppRouterScreen> {
-  int _selectedIndex = 0;
+  final GTabController tabController = Get.find<GTabController>(); // Lấy instance từ GetX
 
   // Danh sách các màn hình tương ứng với từng tab
   static const List<Widget> _screens = <Widget>[
     HomeScreen(),
     DiscoverScreen(),
     MyOrderScreen(),
-    SettingsScreen()
+    SettingsScreen(),
   ];
 
   @override
+  void initState() {
+    super.initState();
+    tabController.selectedIndex.listen((index) {
+      if (mounted) setState(() {});
+    });
+  }
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Obx(() => Scaffold(
       body: Center(
-        child:
-            _screens.elementAt(_selectedIndex), // Hiển thị màn hình tương ứng
+        child: _screens.elementAt(tabController.selectedIndex.value),
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
           color: Color(GColors.whiteColor),
-          borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(32.0), topRight: Radius.circular(32.0)),
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(32.0),
+            topRight: Radius.circular(32.0),
+          ),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withValues(alpha: 0.2),
-              spreadRadius: 2,
-              blurRadius: 7,
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 8,
               offset: Offset(1, 1),
             ),
           ],
@@ -50,19 +67,17 @@ class _AppRouterScreenState extends State<AppRouterScreen> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
           child: GNav(
-            // backgroundColor: Color(GColors.redColor),
             color: Color(GColors.activeFilterColor),
             gap: 8,
             activeColor: Color(GColors.activeFilterColor),
             iconSize: 24,
-            padding: EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            duration: Duration(milliseconds: 400),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            duration: const Duration(milliseconds: 400),
             tabBackgroundColor: Color(GColors.primaryLight),
             onTabChange: (index) {
-              setState(() {
-                _selectedIndex = index; // Cập nhật tab được chọn
-              });
+              tabController.changeTab(index);
             },
+            selectedIndex: tabController.selectedIndex.value,
             tabs: const [
               GButton(
                 icon: CupertinoIcons.house_alt,
@@ -84,6 +99,6 @@ class _AppRouterScreenState extends State<AppRouterScreen> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

@@ -1,6 +1,9 @@
-import 'package:gemstoreappv1/app.dart';
+import 'package:gemstoreappv1/main.dart';
 import 'package:gemstoreappv1/presentation/screens/forgot_password_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/introduce_screen.dart';
+import 'package:gemstoreappv1/presentation/screens/my_cart_screen.dart';
+import 'package:gemstoreappv1/presentation/screens/product_detail_screen.dart';
+import 'package:gemstoreappv1/presentation/screens/search_detail_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/search_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/signin_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/signup_screen.dart';
@@ -33,11 +36,23 @@ final GoRouter router = GoRouter(
     ),
     GoRoute(
       path: AppRoutes.appStack,
-      builder: (context, state) => AppRouterScreen(),
+      builder: (context, state) => MyHomePage(),
     ),
     GoRoute(
       path: AppRoutes.search,
       builder: (context, state) => SearchScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.searchDetails,
+      builder: (context, state) => SearchDetailScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.productDetails,
+      builder: (context, state) => ProductDetailScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.myCart,
+      builder: (context, state) => MyCartScreen(),
     ),
   ],
 );

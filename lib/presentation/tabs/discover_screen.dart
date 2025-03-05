@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/core/widgets/appbar_tab.dart';
 import 'package:gemstoreappv1/routes/app_routes.dart';
 import 'package:go_router/go_router.dart';
@@ -66,9 +67,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                           borderRadius: BorderRadius.circular(16),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.grey.withValues(alpha: 0.2),
-                              spreadRadius: 2,
-                              blurRadius: 7,
+                              color: Colors.grey.withOpacity(0.2),
+                              spreadRadius: 1,
+                              blurRadius: 8,
                               offset: Offset(1, 1),
                             ),
                           ],
@@ -85,9 +86,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(
-                    width: 12,
-                  ),
+                  16.width,
                   Container(
                     padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
@@ -95,9 +94,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(
-                          color: Colors.grey.withValues(alpha: 0.2),
-                          spreadRadius: 2,
-                          blurRadius: 7,
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 1,
+                          blurRadius: 8,
                           offset: Offset(1, 1),
                         ),
                       ],
@@ -142,7 +141,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Color(GColors.whiteColor)
-                                      .withValues(alpha: 0.3)),
+                                      .withOpacity(0.3)),
                             )),
                             Positioned(
                                 child: Container(
@@ -151,7 +150,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                               decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Color(GColors.whiteColor)
-                                      .withValues(alpha: 0.5)),
+                                      .withOpacity(0.5)),
                             )),
                             Image.asset(
                               item['image'],

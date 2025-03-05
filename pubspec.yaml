@@ -40,6 +40,10 @@ dependencies:
   carousel_slider: ^5.0.0
   cached_network_image: ^3.4.1
   google_nav_bar: ^5.0.7
+  lottie: ^3.2.0
+  sidebarx: ^0.17.1
+  flutter_zoom_drawer: ^3.2.0
+  get: ^4.7.2
 
 dev_dependencies:
   flutter_test:

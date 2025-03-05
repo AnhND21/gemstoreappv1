@@ -9,4 +9,7 @@ class AppRoutes {
   static const String home = '/home';
   static const String appStack = '/appStack';
   static const String search = '/search';
+  static const String searchDetails = '/searchDetails';
+  static const String productDetails = '/productDetails';
+  static const String myCart = '/myCart';
 }

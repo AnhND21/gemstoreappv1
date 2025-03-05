@@ -9,22 +9,27 @@ class GAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget? leading;
   final VoidCallback? onPressed;
   final bool? border;
+  final bool? centerTitle;
+  final Color? bgColor;
 
-  GAppBar(
-      {super.key,
-      this.title,
-      this.actions,
-      this.leading,
-      this.onPressed,
-      this.border = false});
+  GAppBar({
+    super.key,
+    this.title,
+    this.actions,
+    this.leading,
+    this.onPressed,
+    this.border = false,
+    this.centerTitle = true,
+    this.bgColor,
+  });
 
   final isAndroid = Platform.isAndroid;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: Color(GColors.whiteColor),
-      centerTitle: true,
+      backgroundColor: bgColor ?? Color(GColors.whiteColor),
+      centerTitle: centerTitle,
       title: Text(
         title ?? '',
         style: TextStyle(
@@ -33,6 +38,7 @@ class GAppBar extends StatelessWidget implements PreferredSizeWidget {
             color: Color(GColors.blackColor)),
       ),
       leadingWidth: 72,
+      titleSpacing: 4,
       leading: GestureDetector(
         onTap: () {
           context.pop();
@@ -47,8 +53,8 @@ class GAppBar extends StatelessWidget implements PreferredSizeWidget {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 2,
-                    blurRadius: 7,
+                    spreadRadius: 1,
+                    blurRadius: 8,
                     offset: Offset(1, 1),
                   ),
                 ],

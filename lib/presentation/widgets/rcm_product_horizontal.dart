@@ -89,8 +89,8 @@ class RecommendedProductHoriz extends StatelessWidget {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.2),
-                        spreadRadius: 2,
-                        blurRadius: 7,
+                        spreadRadius: 1,
+                        blurRadius: 8,
                         offset: Offset(1, 1),
                       ),
                     ],

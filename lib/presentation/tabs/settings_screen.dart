@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/routes/app_routes.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -10,8 +13,16 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('SettingsScreen'),
+    return Scaffold(
+      backgroundColor: Color(GColors.whiteColor),
+      body: Center(
+        child: GestureDetector(
+          onTap: () {
+            context.push(AppRoutes.myCart);
+          },
+          child: Text('Cart'),
+        ),
+      ),
     );
   }
 }

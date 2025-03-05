@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/main.dart';
+import 'package:get/get.dart';
 
 class GAppBarTab extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -19,6 +21,7 @@ class GAppBarTab extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final MyDrawerController drawerController = Get.find<MyDrawerController>();
     return AppBar(
       backgroundColor: Color(GColors.whiteColor),
       centerTitle: true,
@@ -31,7 +34,7 @@ class GAppBarTab extends StatelessWidget implements PreferredSizeWidget {
       ),
       leading: IconButton(
         onPressed: () {
-          // context.pop();
+          drawerController.toggleDrawer();
         },
         icon: leading ??
             Image.asset(

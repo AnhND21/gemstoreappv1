@@ -10,7 +10,7 @@ class GColors {
   static const int blackSlideColor = 0xFF464447;
   static const int grayColor = 0xFFE7E8E9;
   static const int redColor = 0xFFDC586D;
-  static const int greenColor = 0xFF46DFB1;
+  static const int greenColor = 0xFF508A7B;
   static const int blackGrayColor = 0xFFAAAAAA;
   static const int occupiedColor = 0xFF8596B3;
   static const int activeFilterColor = 0xFF3A2C27;
