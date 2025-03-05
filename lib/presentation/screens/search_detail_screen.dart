@@ -25,7 +25,7 @@ class _SearchDetailScreenState extends State<SearchDetailScreen> {
       body: Container(
         width: MediaQuery.of(context).size.width,
         height: MediaQuery.of(context).size.height,
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
@@ -46,7 +46,10 @@ class _SearchDetailScreenState extends State<SearchDetailScreen> {
                             color: Color(GColors.blackGrayColor), width: 2)),
                     child: Row(
                       children: <Widget>[
-                        Text('Filter', style: TextStyle(fontWeight: FontWeight.w500),),
+                        Text(
+                          'Filter',
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                        ),
                         Icon(Icons.arrow_drop_down_outlined)
                       ],
                     ),

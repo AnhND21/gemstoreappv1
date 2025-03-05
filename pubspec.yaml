@@ -44,6 +44,7 @@ dependencies:
   sidebarx: ^0.17.1
   flutter_zoom_drawer: ^3.2.0
   get: ^4.7.2
+  readmore: ^3.0.0
 
 dev_dependencies:
   flutter_test:

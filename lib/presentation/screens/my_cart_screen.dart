@@ -4,6 +4,8 @@ import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/core/widgets/appbar.dart';
 import 'package:gemstoreappv1/core/widgets/button.dart';
 import 'package:gemstoreappv1/presentation/widgets/cart_listing.dart';
+import 'package:gemstoreappv1/routes/app_routes.dart';
+import 'package:go_router/go_router.dart';
 
 class MyCartScreen extends StatefulWidget {
   const MyCartScreen({super.key});
@@ -102,7 +104,11 @@ class _MyCartScreenState extends State<MyCartScreen> {
                         ],
                       ),
                       24.height,
-                      Button(title: 'Proceed to checkout', onPressed: (){})
+                      Button(
+                          title: 'Proceed to checkout',
+                          onPressed: () {
+                            context.go(AppRoutes.checkOutScreen);
+                          })
                     ],
                   ),
                 ))

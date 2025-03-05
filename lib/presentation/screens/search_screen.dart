@@ -119,7 +119,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 ),
               ),
               RecentSearch(data: [], title: 'Recent searches'),
-              ProductListHorizontal(data: [], title: 'Popular this week',)
+              ProductListHorizontal(
+                data: [],
+                title: 'Popular this week',
+              )
             ],
           ),
         ),

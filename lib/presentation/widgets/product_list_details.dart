@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/routes/app_routes.dart';
 import 'package:go_router/go_router.dart';
@@ -38,12 +39,43 @@ class ProductListDetails extends StatelessWidget {
       'totalReview': 102,
       'image':
           'https://www.tomjames.com/pics/catalog/2024SP/pics/Tom-James-Spring-2024-Womens-54.jpg'
-    }
+    },
+    {
+      'id': 1,
+      'productName': 'Linen Dress',
+      'price': '52.00',
+      'priceOriginal': '80.00',
+      'numOfStar': 4,
+      'totalReview': 82,
+      'image':
+          'https://www.shutterstock.com/image-photo/young-fashion-model-stylish-beige-600nw-2382157791.jpg'
+    },
+    {
+      'id': 2,
+      'productName': 'Fitted Waist Dress',
+      'price': '32.00',
+      'priceOriginal': '48.00',
+      'numOfStar': 3,
+      'totalReview': 12,
+      'image':
+          'https://www.projectcece.com/static/_versions/blogs/model_wearing_sustainable_clothing_large.jpg'
+    },
+    {
+      'id': 3,
+      'productName': 'Front Tie Mini Dress',
+      'price': '82.00',
+      'priceOriginal': '60.00',
+      'numOfStar': 5,
+      'totalReview': 102,
+      'image':
+          'https://www.tomjames.com/pics/catalog/2024SP/pics/Tom-James-Spring-2024-Womens-54.jpg'
+    },
   ];
 
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
+      padding: EdgeInsets.fromLTRB(0, 0, 0, 32),
       physics: const AlwaysScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
@@ -118,7 +150,7 @@ class ProductListDetails extends StatelessWidget {
                         Icons.star,
                         size: 16,
                         color: starIndex < product['numOfStar']
-                            ? Colors.green
+                            ? Color(GColors.greenColor)
                             : Colors.grey,
                       ),
                     ),

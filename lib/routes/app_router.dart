@@ -1,4 +1,5 @@
 import 'package:gemstoreappv1/main.dart';
+import 'package:gemstoreappv1/presentation/screens/check_out_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/forgot_password_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/introduce_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/my_cart_screen.dart';
@@ -53,6 +54,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppRoutes.myCart,
       builder: (context, state) => MyCartScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.checkOutScreen,
+      builder: (context, state) => CheckOutScreen(),
     ),
   ],
 );
