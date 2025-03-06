@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
@@ -147,7 +148,7 @@ class ProductListDetails extends StatelessWidget {
                     children: List.generate(
                       5,
                       (starIndex) => Icon(
-                        Icons.star,
+                        CupertinoIcons.star_circle_fill,
                         size: 16,
                         color: starIndex < product['numOfStar']
                             ? Color(GColors.greenColor)

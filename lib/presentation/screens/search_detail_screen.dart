@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/core/widgets/appbar.dart';
 import 'package:gemstoreappv1/presentation/widgets/product_list_details.dart';
@@ -37,22 +38,22 @@ class _SearchDetailScreenState extends State<SearchDetailScreen> {
                   'Found\n150 Result',
                   style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
                 ),
-                InkWell(
+                GestureDetector(
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+                    padding: EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(
-                            color: Color(GColors.blackGrayColor), width: 2)),
-                    child: Row(
-                      children: <Widget>[
-                        Text(
-                          'Filter',
-                          style: TextStyle(fontWeight: FontWeight.w500),
+                      color: Color(GColors.inputBackgroundColor),
+                      borderRadius: BorderRadius.circular(16),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.withOpacity(0.2),
+                          spreadRadius: 1,
+                          blurRadius: 8,
+                          offset: Offset(1, 1),
                         ),
-                        Icon(Icons.arrow_drop_down_outlined)
                       ],
                     ),
+                    child: Icon(GIcons.filterIcon),
                   ),
                 )
               ],

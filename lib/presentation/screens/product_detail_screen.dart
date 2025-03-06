@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/core/widgets/appbar.dart';
 import 'package:gemstoreappv1/presentation/widgets/product_list_horizontal.dart';
@@ -75,7 +76,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ],
                   ),
                   child: Icon(
-                    Icons.favorite,
+                    CupertinoIcons.heart_fill,
                     color: Color(GColors.redColor),
                     size: 20,
                   ),
@@ -139,7 +140,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                         children: List.generate(
                                           5,
                                           (starIndex) => Icon(
-                                            Icons.star,
+                                            CupertinoIcons.star_circle_fill,
                                             size: 16,
                                             color: starIndex < 3
                                                 ? Color(GColors.greenColor)
@@ -285,7 +286,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     'Description',
                                     style: TextStyle(fontSize: 18),
                                   ),
-                                  Icon(Icons.keyboard_arrow_down),
+                                  Icon(GIcons.arrowDownIcon),
                                 ],
                               ),
                               SizedBox(height: 8),
@@ -310,7 +311,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     'Reviews',
                                     style: TextStyle(fontSize: 18),
                                   ),
-                                  Icon(Icons.keyboard_arrow_down),
+                                  Icon(GIcons.arrowDownIcon),
                                 ],
                               ),
                               16.height,
@@ -347,7 +348,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                             padding: const EdgeInsets.only(
                                                 left: 4.0),
                                             child: Icon(
-                                              Icons.star,
+                                              CupertinoIcons.star_circle_fill,
                                               size: 16,
                                               color: starIndex < 3
                                                   ? Color(GColors.greenColor)
@@ -386,7 +387,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                     ),
                                     8.width,
                                     Icon(
-                                      CupertinoIcons.star_fill,
+                                      CupertinoIcons.star_circle_fill,
                                       size: 14,
                                       color: Color(GColors.greenColor),
                                     ),
@@ -472,7 +473,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-                    CupertinoIcons.cart_fill_badge_plus,
+                    GIcons.addToCartIcon,
                     color: Color(GColors.whiteColor),
                   ),
                   8.width,

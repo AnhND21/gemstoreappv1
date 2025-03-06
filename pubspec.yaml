@@ -45,6 +45,7 @@ dependencies:
   flutter_zoom_drawer: ^3.2.0
   get: ^4.7.2
   readmore: ^3.0.0
+  hugeicons: ^0.0.7
 
 dev_dependencies:
   flutter_test:

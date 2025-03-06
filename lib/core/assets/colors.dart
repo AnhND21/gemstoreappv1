@@ -15,4 +15,6 @@ class GColors {
   static const int occupiedColor = 0xFF8596B3;
   static const int activeFilterColor = 0xFF3A2C27;
   static const int inputBackgroundColor = 0xFFFAFAFA;
+  static const int orangeColor = 0xFFCF6212;
+  static const int transparent = 0x00000000;
 }

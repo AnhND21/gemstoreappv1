@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/routes/app_routes.dart';
 import 'package:go_router/go_router.dart';
@@ -39,7 +40,7 @@ class RecentSearch extends StatelessWidget {
             IconButton(
                 onPressed: () {},
                 icon: Icon(
-                  CupertinoIcons.delete_simple,
+                  GIcons.deleteIcon,
                   size: 20,
                   color: Color(GColors.blackGrayColor),
                 )),
@@ -74,7 +75,7 @@ class RecentSearch extends StatelessWidget {
                     InkWell(
                       onTap: () {},
                       child: Icon(
-                        CupertinoIcons.xmark,
+                        GIcons.deleteXIcon,
                         size: 14,
                       ),
                     )

@@ -5,6 +5,7 @@ import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/main.dart';
 import 'package:get/get.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class MenuSider extends GetView<MyDrawerController> {
   const MenuSider({super.key});
@@ -63,7 +64,7 @@ class MenuSider extends GetView<MyDrawerController> {
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 children: [
                   _buildMenuItem(
-                      icon: CupertinoIcons.home,
+                      icon: HugeIcons.strokeRoundedHome04,
                       title: 'Home',
                       onTap: () {
                         controller.toggleDrawer();
@@ -71,7 +72,7 @@ class MenuSider extends GetView<MyDrawerController> {
                       },
                       isActive: tabController.selectedIndex.value == 0),
                   _buildMenuItem(
-                      icon: CupertinoIcons.search,
+                      icon: HugeIcons.strokeRoundedSearch01,
                       title: 'Discover',
                       onTap: () {
                         controller.toggleDrawer();
@@ -79,16 +80,16 @@ class MenuSider extends GetView<MyDrawerController> {
                       },
                       isActive: tabController.selectedIndex.value == 1),
                   _buildMenuItem(
-                      icon: CupertinoIcons.shopping_cart,
-                      title: 'My Order',
+                      icon: HugeIcons.strokeRoundedShoppingBag01,
+                      title: 'My Orders',
                       onTap: () {
                         controller.toggleDrawer();
                         tabController.changeTab(2);
                       },
                       isActive: tabController.selectedIndex.value == 2),
                   _buildMenuItem(
-                      icon: CupertinoIcons.person,
-                      title: 'My profile',
+                      icon: HugeIcons.strokeRoundedSettings02,
+                      title: 'Settings',
                       onTap: () {
                         controller.toggleDrawer();
                         tabController.changeTab(3);
@@ -106,15 +107,7 @@ class MenuSider extends GetView<MyDrawerController> {
                     ),
                   ),
                   _buildMenuItem(
-                    icon: CupertinoIcons.settings,
-                    title: 'Setting',
-                    onTap: () {
-                      controller.toggleDrawer();
-                      // Điều hướng tới Setting
-                    },
-                  ),
-                  _buildMenuItem(
-                    icon: CupertinoIcons.envelope,
+                    icon: HugeIcons.strokeRoundedMail01,
                     title: 'Support',
                     onTap: () {
                       controller.toggleDrawer();
@@ -122,7 +115,7 @@ class MenuSider extends GetView<MyDrawerController> {
                     },
                   ),
                   _buildMenuItem(
-                    icon: CupertinoIcons.info,
+                    icon: HugeIcons.strokeRoundedInformationCircle,
                     title: 'About us',
                     onTap: () {
                       controller.toggleDrawer();

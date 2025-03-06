@@ -7,6 +7,7 @@ import 'package:gemstoreappv1/presentation/tabs/my_order_screen.dart';
 import 'package:gemstoreappv1/presentation/tabs/settings_screen.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:get/get.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class GTabController extends GetxController {
   final RxInt selectedIndex = 0.obs; // Định nghĩa selectedIndex là RxInt
@@ -78,22 +79,22 @@ class _AppRouterScreenState extends State<AppRouterScreen> {
               tabController.changeTab(index);
             },
             selectedIndex: tabController.selectedIndex.value,
-            tabs: const [
+            tabs: [
               GButton(
-                icon: CupertinoIcons.house_alt,
+                icon: HugeIcons.strokeRoundedHome04,
                 text: 'Home',
               ),
               GButton(
-                icon: CupertinoIcons.search,
+                icon: HugeIcons.strokeRoundedSearch01,
                 text: 'Discover',
               ),
               GButton(
-                icon: CupertinoIcons.shopping_cart,
+                icon: HugeIcons.strokeRoundedShoppingBag01,
                 text: 'My Orders',
               ),
               GButton(
-                icon: CupertinoIcons.person,
-                text: 'Profile',
+                icon: HugeIcons.strokeRoundedSettings02,
+                text: 'Settings',
               ),
             ],
           ),

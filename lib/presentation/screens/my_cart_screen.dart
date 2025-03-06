@@ -107,7 +107,7 @@ class _MyCartScreenState extends State<MyCartScreen> {
                       Button(
                           title: 'Proceed to checkout',
                           onPressed: () {
-                            context.go(AppRoutes.checkOutScreen);
+                            context.push(AppRoutes.checkOutScreen);
                           })
                     ],
                   ),

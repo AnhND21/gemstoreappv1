@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/core/widgets/appbar.dart';
 import 'package:gemstoreappv1/presentation/widgets/product_list_horizontal.dart';
@@ -68,7 +69,7 @@ class _SearchScreenState extends State<SearchScreen> {
                               InkWell(
                                 onTap: () {},
                                 child: Icon(
-                                  CupertinoIcons.search,
+                                  GIcons.searchIcon,
                                   size: 22,
                                 ),
                               ),
@@ -112,7 +113,7 @@ class _SearchScreenState extends State<SearchScreen> {
                             ),
                           ],
                         ),
-                        child: Icon(Icons.filter_list_outlined),
+                        child: Icon(GIcons.filterIcon),
                       ),
                     )
                   ],

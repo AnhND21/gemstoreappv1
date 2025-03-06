@@ -13,4 +13,6 @@ class AppRoutes {
   static const String productDetails = '/productDetails';
   static const String myCart = '/myCart';
   static const String checkOutScreen = '/checkOutScreen';
+  static const String selectPaymentScreen = '/selectPaymentScreen';
+  static const String paymentSuccessScreen = '/paymentSuccessScreen';
 }

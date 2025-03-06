@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 import 'package:go_router/go_router.dart';
 
 class GAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -40,9 +41,10 @@ class GAppBar extends StatelessWidget implements PreferredSizeWidget {
       leadingWidth: 72,
       titleSpacing: 4,
       leading: GestureDetector(
-        onTap: () {
-          context.pop();
-        },
+        onTap: onPressed ??
+            () {
+              context.pop();
+            },
         child: leading ??
             Container(
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -50,17 +52,17 @@ class GAppBar extends StatelessWidget implements PreferredSizeWidget {
               decoration: BoxDecoration(
                 color: Color(GColors.whiteColor),
                 shape: BoxShape.circle, // Dùng circle để đẹp hơn
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.2),
-                    spreadRadius: 1,
-                    blurRadius: 8,
-                    offset: Offset(1, 1),
-                  ),
-                ],
+                // boxShadow: [
+                //   BoxShadow(
+                //     color: Colors.grey.withOpacity(0.2),
+                //     spreadRadius: 1,
+                //     blurRadius: 8,
+                //     offset: Offset(1, 1),
+                //   ),
+                // ],
               ),
               child: Icon(
-                Icons.chevron_left,
+                GIcons.arrowLeft2Icon,
                 color: Color(GColors.blackColor),
                 size: 26, // Giảm size icon
               ),

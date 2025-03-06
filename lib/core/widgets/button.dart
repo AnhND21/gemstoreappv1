@@ -8,15 +8,17 @@ class Button extends StatelessWidget {
   final int? textColor;
   final EdgeInsets? margin;
   final bool? loading;
+  final bool? noPadding;
 
   const Button(
       {super.key,
-        required this.title,
-        required this.onPressed,
-        this.bgColor,
-        this.textColor,
-        this.loading,
-        this.margin});
+      required this.title,
+      required this.onPressed,
+      this.bgColor,
+      this.textColor,
+      this.loading,
+      this.margin,
+      this.noPadding = false});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class Button extends StatelessWidget {
         foregroundColor: Colors.transparent,
         elevation: 0,
         backgroundColor: Color(bgColor ?? GColors.blackColor),
-        padding: const EdgeInsets.all(12),
+        padding: noPadding! ? null : const EdgeInsets.all(12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12.0), // Adjust corner radius
         ),
@@ -35,20 +37,20 @@ class Button extends StatelessWidget {
       child: Center(
         child: loading != null && loading == true
             ? SizedBox(
-          height: 20, // Chiều cao của spinner
-          width: 20,
-          child: CircularProgressIndicator(
-            strokeWidth: 2.0,
-            color: Colors.white,
-          ),
-        )
+                height: 20, // Chiều cao của spinner
+                width: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.0,
+                  color: Colors.white,
+                ),
+              )
             : Text(
-          title ?? "Button",
-          style: TextStyle(
-              fontSize: 14.0,
-              color: Color(textColor ?? GColors.whiteColor),
-              fontWeight: FontWeight.bold),
-        ),
+                title ?? 'Button',
+                style: TextStyle(
+                    fontSize: 14.0,
+                    color: Color(textColor ?? GColors.whiteColor),
+                    fontWeight: FontWeight.bold),
+              ),
       ),
     );
   }

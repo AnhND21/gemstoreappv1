@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/widgets/appbar_tab.dart';
 import 'package:gemstoreappv1/routes/app_routes.dart';
 import 'package:go_router/go_router.dart';
 
@@ -15,6 +16,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(GColors.whiteColor),
+      appBar: GAppBarTab(
+        title: 'Profile',
+      ),
       body: Center(
         child: GestureDetector(
           onTap: () {

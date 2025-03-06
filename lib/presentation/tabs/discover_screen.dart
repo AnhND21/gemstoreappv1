@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/core/widgets/appbar_tab.dart';
 import 'package:gemstoreappv1/routes/app_routes.dart';
@@ -76,10 +76,8 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         ),
                         child: Row(
                           children: <Widget>[
-                            Icon(CupertinoIcons.search),
-                            SizedBox(
-                              width: 4,
-                            ),
+                            Icon(GIcons.searchIcon),
+                            8.width,
                             Text('Search...')
                           ],
                         ),
@@ -101,7 +99,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                         ),
                       ],
                     ),
-                    child: Icon(Icons.filter_list_outlined),
+                    child: Icon(GIcons.filterIcon),
                   )
                 ],
               ),

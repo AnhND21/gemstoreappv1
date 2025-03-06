@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 import 'package:gemstoreappv1/main.dart';
 import 'package:get/get.dart';
+import 'package:hugeicons/hugeicons.dart';
 
 class GAppBarTab extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
@@ -37,17 +38,27 @@ class GAppBarTab extends StatelessWidget implements PreferredSizeWidget {
           drawerController.toggleDrawer();
         },
         icon: leading ??
-            Image.asset(
-              'assets/icons/menu_icon.png',
-              scale: 2,
-            ),
+            HugeIcon(icon: GIcons.menuIcon, color: Color(GColors.blackColor)),
       ),
       actions: [
         IconButton(
             onPressed: () {},
-            icon: Icon(
-              CupertinoIcons.bell,
-              color: Color(GColors.blackColor),
+            icon: Stack(
+              children: [
+                Icon(
+                  GIcons.notifyIcon,
+                  color: Color(GColors.blackColor),
+                ),
+                Positioned(
+                    right: 2,
+                    child: Container(
+                      width: 8,
+                      height: 8,
+                      decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.circular(8)),
+                    ))
+              ],
             ))
       ],
       bottom: border!
