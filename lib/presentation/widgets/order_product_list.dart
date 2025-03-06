@@ -2,46 +2,37 @@ import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/constants/SizedBoxEnum.dart';
 import 'package:gemstoreappv1/core/widgets/button.dart';
+import 'package:gemstoreappv1/routes/app_routes.dart';
+import 'package:go_router/go_router.dart';
 
 class OrderProductList extends StatelessWidget {
   final List<Map<String, dynamic>> data;
-
   OrderProductList({super.key, required this.data});
 
-  final List<Map<String, dynamic>> sample = [
-    {
-      'id': 1213,
-      'date': '13/02/2025',
-      'trackingNumber': 'IK213DG22',
-      'quantity': '2',
-      'subTotal': 100,
-      'status': 0
-    },
-    {
-      'id': 1313,
-      'date': '09/02/2025',
-      'trackingNumber': 'IK213DG22',
-      'quantity': '2',
-      'subTotal': 80,
-      'status': 0
-    },
-    {
-      'id': 1113,
-      'date': '09/09/2023',
-      'trackingNumber': 'IK213EE22',
-      'quantity': '22',
-      'subTotal': 180,
-      'status': 0
-    },
-    {
-      'id': 1113,
-      'date': '09/09/2023',
-      'trackingNumber': 'IK213EE22',
-      'quantity': '22',
-      'subTotal': 180,
-      'status': 0
-    },
-  ];
+  Widget _renderStatus(int status) {
+    switch (status) {
+      case 0:
+        return Text(
+          'pending'.toUpperCase(),
+          style: TextStyle(
+              color: Color(GColors.orangeColor), fontWeight: FontWeight.w600),
+        );
+      case 1:
+        return Text(
+          'delivered'.toUpperCase(),
+          style: TextStyle(
+              color: Color(GColors.greenColor), fontWeight: FontWeight.w600),
+        );
+      case 2:
+        return Text(
+          'cancelled'.toUpperCase(),
+          style: TextStyle(
+              color: Color(GColors.redColor), fontWeight: FontWeight.w600),
+        );
+      default:
+        return Container();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +40,7 @@ class OrderProductList extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(8, 16, 8, 32),
         shrinkWrap: true,
         itemBuilder: (dynamic item, int index) {
-          final product = sample[index];
+          final product = data[index];
           return Container(
             padding: EdgeInsets.all(16),
             decoration: BoxDecoration(
@@ -133,15 +124,18 @@ class OrderProductList extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      'pending'.toUpperCase(),
-                      style: TextStyle(color: Color(GColors.orangeColor)),
-                    ),
+                    _renderStatus(product['status']),
                     Button(
                       title: 'Details',
-                      onPressed: () {},
+                      onPressed: () {
+                        context.push(AppRoutes.orderDetailScreen, extra: {
+                          'id': product['id'],
+                          'status': product['status']
+                        });
+                      },
                       noPadding: true,
-                      // textColor: GColors.greenColor,
+                      isShowBorder: true,
+                      textColor: GColors.blackColor,
                       // bgColor: GColors.transparent,
                     )
                   ],
@@ -153,6 +147,6 @@ class OrderProductList extends StatelessWidget {
         separatorBuilder: (dynamic item, int index) {
           return 16.height;
         },
-        itemCount: sample.length);
+        itemCount: data.length);
   }
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/presentation/screens/home_screen.dart';
@@ -10,11 +9,10 @@ import 'package:get/get.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class GTabController extends GetxController {
-  final RxInt selectedIndex = 0.obs; // Định nghĩa selectedIndex là RxInt
+  final RxInt selectedIndex = 0.obs;
 
   void changeTab(int index) {
     selectedIndex.value = index;
-    // print('Changed to tab $index'); // Debug nếu cần
   }
 }
 
@@ -26,9 +24,8 @@ class AppRouterScreen extends StatefulWidget {
 }
 
 class _AppRouterScreenState extends State<AppRouterScreen> {
-  final GTabController tabController = Get.find<GTabController>(); // Lấy instance từ GetX
+  final GTabController tabController = Get.find<GTabController>();
 
-  // Danh sách các màn hình tương ứng với từng tab
   static const List<Widget> _screens = <Widget>[
     HomeScreen(),
     DiscoverScreen(),
@@ -36,70 +33,80 @@ class _AppRouterScreenState extends State<AppRouterScreen> {
     SettingsScreen(),
   ];
 
-  @override
-  void initState() {
-    super.initState();
-    tabController.selectedIndex.listen((index) {
-      if (mounted) setState(() {});
-    });
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   print('AppRouterScreen initState called'); // Debug
+  //   WidgetsBinding.instance.addPostFrameCallback((_) {
+  //     print('Post frame callback executed'); // Debug
+  //     final extra = GoRouterState.of(context).extra as Map<String, dynamic>?;
+  //     print('Extra received: $extra'); // Debug
+  //     if (extra != null && extra['success'] == true) {
+  //       print('Switching to Home tab (index 0)'); // Debug
+  //       tabController.changeTab(0);
+  //     } else {
+  //       print('No valid extra or success is not true'); // Debug
+  //     }
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
-      body: Center(
-        child: _screens.elementAt(tabController.selectedIndex.value),
-      ),
-      bottomNavigationBar: Container(
-        decoration: BoxDecoration(
-          color: Color(GColors.whiteColor),
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(32.0),
-            topRight: Radius.circular(32.0),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 1,
-              blurRadius: 8,
-              offset: Offset(1, 1),
+          body: _screens.elementAt(tabController.selectedIndex.value),
+          bottomNavigationBar: Container(
+            decoration: BoxDecoration(
+              color: Color(GColors.whiteColor),
+              borderRadius: const BorderRadius.only(
+                topLeft: Radius.circular(32.0),
+                topRight: Radius.circular(32.0),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 8,
+                  offset: Offset(1, 1),
+                ),
+              ],
             ),
-          ],
-        ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
-          child: GNav(
-            color: Color(GColors.activeFilterColor),
-            gap: 8,
-            activeColor: Color(GColors.activeFilterColor),
-            iconSize: 24,
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            duration: const Duration(milliseconds: 400),
-            tabBackgroundColor: Color(GColors.primaryLight),
-            onTabChange: (index) {
-              tabController.changeTab(index);
-            },
-            selectedIndex: tabController.selectedIndex.value,
-            tabs: [
-              GButton(
-                icon: HugeIcons.strokeRoundedHome04,
-                text: 'Home',
+            child: Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 15.0, vertical: 20),
+              child: GNav(
+                color: Color(GColors.activeFilterColor),
+                gap: 8,
+                activeColor: Color(GColors.activeFilterColor),
+                iconSize: 24,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                duration: const Duration(milliseconds: 400),
+                tabBackgroundColor: Color(GColors.primaryLight),
+                selectedIndex: tabController.selectedIndex.value,
+                onTabChange: (index) {
+                  tabController.changeTab(index);
+                },
+                tabs: const [
+                  GButton(
+                    icon: HugeIcons.strokeRoundedHome04,
+                    text: 'Home',
+                  ),
+                  GButton(
+                    icon: HugeIcons.strokeRoundedSearch01,
+                    text: 'Discover',
+                  ),
+                  GButton(
+                    icon: HugeIcons.strokeRoundedShoppingBag01,
+                    text: 'My Orders',
+                  ),
+                  GButton(
+                    icon: HugeIcons.strokeRoundedSettings02,
+                    text: 'Settings',
+                  ),
+                ],
               ),
-              GButton(
-                icon: HugeIcons.strokeRoundedSearch01,
-                text: 'Discover',
-              ),
-              GButton(
-                icon: HugeIcons.strokeRoundedShoppingBag01,
-                text: 'My Orders',
-              ),
-              GButton(
-                icon: HugeIcons.strokeRoundedSettings02,
-                text: 'Settings',
-              ),
-            ],
+            ),
           ),
-        ),
-      ),
-    ));
+        ));
   }
 }

@@ -3,6 +3,7 @@ import 'package:gemstoreappv1/presentation/screens/check_out_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/forgot_password_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/introduce_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/my_cart_screen.dart';
+import 'package:gemstoreappv1/presentation/screens/order_detail_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/payment_success_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/product_detail_screen.dart';
 import 'package:gemstoreappv1/presentation/screens/search_detail_screen.dart';
@@ -68,6 +69,10 @@ final GoRouter router = GoRouter(
     GoRoute(
       path: AppRoutes.paymentSuccessScreen,
       builder: (context, state) => PaymentSuccessScreen(),
+    ),
+    GoRoute(
+      path: AppRoutes.orderDetailScreen,
+      builder: (context, state) => OrderDetailScreen(),
     ),
   ],
 );

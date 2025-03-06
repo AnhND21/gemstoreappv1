@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/assets/icons.dart';
@@ -14,6 +13,63 @@ class MyOrderScreen extends StatefulWidget {
 }
 
 class _MyOrderScreenState extends State<MyOrderScreen> {
+  final List<Map<String, dynamic>> sample = [
+    {
+      'id': 1213,
+      'date': '13/02/2025',
+      'trackingNumber': 'IK213DG22',
+      'quantity': '2',
+      'subTotal': 100,
+      'status': 0
+    },
+    {
+      'id': 1313,
+      'date': '09/02/2025',
+      'trackingNumber': 'IK213DG22',
+      'quantity': '2',
+      'subTotal': 80,
+      'status': 0
+    },
+  ];
+
+  final List<Map<String, dynamic>> sample1 = [
+    {
+      'id': 1213,
+      'date': '13/02/2025',
+      'trackingNumber': 'IK213DG22',
+      'quantity': '2',
+      'subTotal': 100,
+      'status': 1
+    },
+    {
+      'id': 1313,
+      'date': '09/02/2025',
+      'trackingNumber': 'IK213DG22',
+      'quantity': '2',
+      'subTotal': 80,
+      'status': 1
+    },
+  ];
+
+  final List<Map<String, dynamic>> sample2 = [
+    {
+      'id': 1213,
+      'date': '13/02/2025',
+      'trackingNumber': 'IK213DG22',
+      'quantity': '2',
+      'subTotal': 100,
+      'status': 2
+    },
+    {
+      'id': 1313,
+      'date': '09/02/2025',
+      'trackingNumber': 'IK213DG22',
+      'quantity': '2',
+      'subTotal': 80,
+      'status': 2
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,14 +159,10 @@ class _MyOrderScreenState extends State<MyOrderScreen> {
             body: TabBarView(
               children: [
                 OrderProductList(
-                  data: [],
+                  data: sample,
                 ),
-                OrderProductList(
-                  data: [],
-                ),
-                OrderProductList(
-                  data: [],
-                ),
+                OrderProductList(data: sample1),
+                OrderProductList(data: sample2),
               ],
             ),
           ),

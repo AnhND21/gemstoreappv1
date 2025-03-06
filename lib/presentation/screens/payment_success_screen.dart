@@ -17,7 +17,7 @@ class PaymentSuccessScreen extends StatelessWidget {
       appBar: GAppBar(
         title: 'Payment Success',
         onPressed: () {
-          context.go(AppRoutes.appStack);
+          context.go(AppRoutes.appStack, extra: {'success': true});
         },
       ),
       body: SingleChildScrollView(
@@ -72,7 +72,7 @@ class PaymentSuccessScreen extends StatelessWidget {
               Button(
                   title: 'Continue Shopping',
                   onPressed: () {
-                    context.go(AppRoutes.appStack);
+                    context.go(AppRoutes.appStack, extra: {'success': true});
                   })
             ],
           ),

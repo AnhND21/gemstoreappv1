@@ -20,4 +20,5 @@ class GIcons {
   static const deliveryDelayIcon = HugeIcons.strokeRoundedDeliveryDelay01;
   static const deliveredIcon = HugeIcons.strokeRoundedPackageDelivered;
   static const deliveryCancelIcon = HugeIcons.strokeRoundedBookmarkRemove01;
+  static const deliveringCancelIcon = HugeIcons.strokeRoundedDeliveryTruck01;
 }

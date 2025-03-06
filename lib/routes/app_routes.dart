@@ -15,4 +15,5 @@ class AppRoutes {
   static const String checkOutScreen = '/checkOutScreen';
   static const String selectPaymentScreen = '/selectPaymentScreen';
   static const String paymentSuccessScreen = '/paymentSuccessScreen';
+  static const String orderDetailScreen = '/orderDetailScreen';
 }
