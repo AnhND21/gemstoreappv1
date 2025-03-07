@@ -17,4 +17,5 @@ class GColors {
   static const int inputBackgroundColor = 0xFFFAFAFA;
   static const int orangeColor = 0xFFCF6212;
   static const int transparent = 0x00000000;
+  static const int yellowColor = 0xFFFFD953;
 }

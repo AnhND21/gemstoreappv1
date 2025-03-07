@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/assets/icons.dart';
+import 'package:gemstoreappv1/core/widgets/appbar.dart';
 import 'package:gemstoreappv1/main.dart';
+import 'package:gemstoreappv1/routes/app_routes.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hugeicons/hugeicons.dart';
 
 class GAppBarTab extends StatelessWidget implements PreferredSizeWidget {
@@ -42,7 +45,9 @@ class GAppBarTab extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.push(AppRoutes.notificationScreen);
+            },
             icon: Stack(
               children: [
                 Icon(

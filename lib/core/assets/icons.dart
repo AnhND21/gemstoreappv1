@@ -21,4 +21,23 @@ class GIcons {
   static const deliveredIcon = HugeIcons.strokeRoundedPackageDelivered;
   static const deliveryCancelIcon = HugeIcons.strokeRoundedBookmarkRemove01;
   static const deliveringCancelIcon = HugeIcons.strokeRoundedDeliveryTruck01;
+  static const boyIcon = HugeIcons.strokeRoundedBabyBoyDress;
+  static const girlIcon = HugeIcons.strokeRoundedBabyGirlDress;
+  static const shoesIcon = HugeIcons.strokeRoundedRunningShoes;
+  static const neckLaceIcon = HugeIcons.strokeRoundedNecklace;
+  static const beautyIcon = HugeIcons.strokeRoundedAiBeautify;
+  static const arrowRightIcon = HugeIcons.strokeRoundedArrowRight01;
+  static const giftIcon = HugeIcons.strokeRoundedGift;
+  static const imageIcon = HugeIcons.strokeRoundedImage02;
+  static const cameraIcon = HugeIcons.strokeRoundedCamera01;
+  static const thumbsUpIcon = HugeIcons.strokeRoundedThumbsUp;
+  static const locationIcon = HugeIcons.strokeRoundedLocation01;
+  static const paymentMethodIcon = HugeIcons.strokeRoundedCreditCardPos;
+  static const couponIcon = HugeIcons.strokeRoundedCouponPercent;
+  static const whiteListIcon = HugeIcons.strokeRoundedHeartCheck;
+  static const rateIcon = HugeIcons.strokeRoundedStarHalf;
+  static const logoutIcon = HugeIcons.strokeRoundedLogout03;
+  static const cartIcon = HugeIcons.strokeRoundedShoppingCart01;
+  static const tickIcon = HugeIcons.strokeRoundedCheckmarkCircle01;
+  static const plusIcon = HugeIcons.strokeRoundedPlusSign;
 }

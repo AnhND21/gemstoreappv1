@@ -2,6 +2,8 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/routes/app_routes.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeSlideImage extends StatefulWidget {
   const HomeSlideImage({super.key});
@@ -61,45 +63,53 @@ class _HomeSlideImageState extends State<HomeSlideImage> {
               },
             ),
             items: imgList.map((item) {
-              return SizedBox(
-                width: MediaQuery.of(context).size.width, // Giới hạn chiều rộng
-                child: Stack(
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(16)),
-                      child: CachedNetworkImage(
-                        imageUrl: item['image'],
-                        fit: BoxFit.cover,
-                        width: double.infinity,
-                        height: 200.0,
-                        progressIndicatorBuilder:
-                            (context, url, downloadProgress) => Center(
-                          child: CircularProgressIndicator(
-                            value: downloadProgress.progress,
-                            color: Color(GColors.greenColor),
+              return GestureDetector(
+                onTap: () {
+                  context.push(AppRoutes.collectionScreen,
+                      extra: {'image': item['image']});
+                },
+                child: SizedBox(
+                  width:
+                      MediaQuery.of(context).size.width, // Giới hạn chiều rộng
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.all(Radius.circular(16)),
+                        child: CachedNetworkImage(
+                          imageUrl: item['image'],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: 200.0,
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) => Center(
+                            child: CircularProgressIndicator(
+                              value: downloadProgress.progress,
+                              color: Color(GColors.greenColor),
+                            ),
+                          ),
+                          errorWidget: (context, url, error) =>
+                              Icon(Icons.error),
+                        ),
+                      ),
+                      Positioned(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.all(Radius.circular(16)),
+                            color: Colors.black45,
                           ),
                         ),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
                       ),
-                    ),
-                    Positioned(
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.all(Radius.circular(16)),
-                          color: Colors.black45,
-                        ),
+                      Positioned(
+                        top: 16,
+                        right: 12,
+                        child: Text(item['title'],
+                            style: TextStyle(
+                                color: Color(GColors.whiteColor),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 28)),
                       ),
-                    ),
-                    Positioned(
-                      top: 16,
-                      right: 12,
-                      child: Text(item['title'],
-                          style: TextStyle(
-                              color: Color(GColors.whiteColor),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 28)),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               );
             }).toList(),

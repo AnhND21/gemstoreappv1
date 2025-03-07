@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
+import 'package:gemstoreappv1/core/assets/icons.dart';
 
 class HomeHeaderFilter extends StatefulWidget {
   HomeHeaderFilter({super.key});
@@ -13,31 +14,31 @@ class _HomeHeaderFilterState extends State<HomeHeaderFilter> {
     {
       'id': 1,
       'title': 'Women',
-      'icon': 'assets/icons/women_icon.png',
+      'icon': GIcons.girlIcon,
       'isActive': false
     },
     {
       'id': 2,
       'title': 'Men',
-      'icon': 'assets/icons/men_icon.png',
+      'icon': GIcons.boyIcon,
       'isActive': true
     },
     {
       'id': 3,
       'title': 'Accessories',
-      'icon': 'assets/icons/accessories_icon.png',
+      'icon': GIcons.neckLaceIcon,
       'isActive': false
     },
     {
       'id': 4,
       'title': 'Beauty',
-      'icon': 'assets/icons/beauty_icon.png',
+      'icon': GIcons.beautyIcon,
       'isActive': false
     },
     {
       'id': 5,
       'title': 'Shoes',
-      'icon': 'assets/icons/beauty_icon.png',
+      'icon': GIcons.shoesIcon,
       'isActive': false
     },
   ];
@@ -90,9 +91,9 @@ class _HomeHeaderFilterState extends State<HomeHeaderFilter> {
                                 : Color(GColors.grayColor),
                             borderRadius: BorderRadius.circular(32),
                           ),
-                          child: Image.asset(
+                          child: Icon(
                             action['icon'],
-                            color: Color(GColors.blackGrayColor),
+                            color: Color(isActive ? GColors.whiteColor: GColors.blackGrayColor),
                           ),
                         ),
                       ),

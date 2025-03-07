@@ -11,6 +11,7 @@ class TextInput extends StatelessWidget {
   final TextEditingController? controller;
   final bool isRequired;
   final bool noBorder;
+  final int maxLines;
 
   const TextInput({
     super.key,
@@ -22,6 +23,7 @@ class TextInput extends StatelessWidget {
     this.suffixWidget,
     this.isRequired = false,
     this.noBorder = false,
+    this.maxLines = 1,
   });
 
   @override
@@ -49,6 +51,7 @@ class TextInput extends StatelessWidget {
             : Container(),
         TextFormField(
           textAlignVertical: TextAlignVertical.center,
+          maxLines: maxLines,
           controller: controller,
           // onChanged: (value) {
           //   _password.value = TextEditingValue(
