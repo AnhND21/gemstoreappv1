@@ -15,6 +15,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(GColors.whiteColor),
       appBar: GAppBar(
         title: 'Delivery Address',
         actions: [
@@ -27,7 +28,7 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
               children: [
                 Icon(
                   GIcons.plusIcon,
-                  color: Color(GColors.greenColor),
+                  color: Color(GColors.blackColor),
                 ),
                 8.width
               ],

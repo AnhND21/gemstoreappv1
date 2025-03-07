@@ -66,11 +66,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
   ];
 
   void onPressedAction(String type) {
+    String screen = '';
     switch (type) {
       case 'cart':
-        context.push(AppRoutes.myCart);
+        screen = AppRoutes.myCart;
+        break;
+      case 'address':
+        screen = AppRoutes.deliveryAddressScreen;
         break;
     }
+    context.push(screen);
   }
 
   @override
@@ -145,6 +150,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisSize: MainAxisSize.max,
                     children: <Widget>[
                       Row(
                         children: <Widget>[
