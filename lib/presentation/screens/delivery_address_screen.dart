@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gemstoreappv1/core/assets/colors.dart';
 import 'package:gemstoreappv1/core/assets/icons.dart';
@@ -12,6 +13,11 @@ class DeliveryAddressScreen extends StatefulWidget {
 }
 
 class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
+  final List<Map<String, dynamic>> data = [
+    {'id': 1, 'type': 'home', 'address': '106 La Noi, Duong Noi, Ha Dong'},
+    {'id': 2, 'type': 'office', 'address': 'A10 Fenikaa, Yen Nghia, Ha Dong'},
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,6 +42,31 @@ class _DeliveryAddressScreenState extends State<DeliveryAddressScreen> {
           )
         ],
       ),
+      body: ListView.separated(
+          shrinkWrap: true,
+          physics: AlwaysScrollableScrollPhysics(),
+          itemBuilder: (dynamic item, int index) {
+            return Container(
+              decoration: BoxDecoration(),
+              child: Row(
+                children: [
+                  IconButton(
+                      onPressed: () {}, icon: Icon(CupertinoIcons.circle)),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(data[index]['type']),
+                      Text(data[index]['address'])
+                    ],
+                  ),
+                ],
+              ),
+            );
+          },
+          separatorBuilder: (dynamic item, int index) {
+            return 16.height;
+          },
+          itemCount: data.length),
     );
   }
 }

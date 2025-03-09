@@ -144,7 +144,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               // Parent scroll handles scrolling
               itemBuilder: (context, index) {
                 final item = actions[index];
-                return GestureDetector(
+                return InkWell(
                   onTap: () {
                     onPressedAction(item['type']);
                   },
